@@ -4,6 +4,7 @@
 import argparse
 import random
 from itertools import permutations
+from math import floor
 
 """ Compute a solution to the Monty Hall problem
 
@@ -35,8 +36,19 @@ def montyHallProcess(N):
         else:
             change += 1 / N
 
-    print("Probability to win if we change of door: {}".format(change))
-    print("Probability to win if we keep of door : {}".format(keep))
+    print("Probability to win if we switch doors: {}".format(change))
+    print("Probability to win if we keep the one we choose : {}".format(keep))
+
+    ratio = floor(change / keep)
+
+    if (ratio > 1) :
+        compare = "higher"
+    elif (ratio < 1):
+        compare = "smaller"
+    else:
+        compare = "equal"
+    print("By the way, your chance to win by switching are {} {} than keeping your choice".format(int(change/keep), compare))
+
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Compute a solution to the Monty Hall problem.')
