@@ -39,15 +39,15 @@ def montyHallProcess(N):
     print("Probability to win if we switch doors: {}".format(change))
     print("Probability to win if we keep the one we choose : {}".format(keep))
 
-    ratio = floor(change / keep)
+    ratio = float(change / keep)
 
     if (ratio > 1) :
         compare = "higher"
     elif (ratio < 1):
         compare = "smaller"
-    else:
+    elif ratio == 1:
         compare = "equal"
-    print("By the way, your chance to win by switching are {} {} than keeping your choice".format(int(change/keep), compare))
+    print("By the way, your chance to win by switching are {} {} than keeping your choice".format(float(change/keep), compare))
 
     
 if __name__ == '__main__':
